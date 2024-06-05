@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bug4dh5s27dlu"]
+
+[ext_resource type="FontFile" uid="uid://ocyhy61xhnsp" path="res://Font/tenderness.otf" id="1_4c36x"]
+[ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_g6740"]
+[ext_resource type="PackedScene" uid="uid://cgi4mhmcf430q" path="res://Utility/basic_button.tscn" id="2_v5j2o"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g6740")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -9.0
+offset_right = 646.0
+offset_bottom = 374.0
+color = Color(0.891523, 0.238965, 0.231936, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_4c36x")
+theme_override_font_sizes/font_size = 72
+text = "My First Game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 106.0
+offset_right = 636.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("1_4c36x")
+theme_override_font_sizes/font_size = 20
+text = "(A suvivor clone)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_play" parent="." instance=ExtResource("2_v5j2o")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 208.0
+offset_bottom = 286.0
+text = "Play"
+
+[node name="btn_exit" parent="." instance=ExtResource("2_v5j2o")]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 286.0
+text = "Exit"
+
+[connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
+[connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
